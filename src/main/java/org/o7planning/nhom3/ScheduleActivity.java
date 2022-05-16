@@ -34,6 +34,10 @@ import org.o7planning.nhom3.model.LoginResponse;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,6 +55,7 @@ public class ScheduleActivity extends AppCompatActivity {
     String [] dateItems = new String[7];
     String [] timeItems = {"08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00",
             "13:00", "13:30" , "14:00", "14:30" ,"15:00", "15:30", "16:00", "16:30", "17:00", "17:30" ,"18:00"};
+    String [] tempTimeItems = {};
     AutoCompleteTextView autoCompleteDate, autoCompleteTime;
     ArrayAdapter<String> adapterDateItems, adapterTimeItems;
     @Override
@@ -85,9 +90,9 @@ public class ScheduleActivity extends AppCompatActivity {
         autoCompleteDate.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), autoCompleteDate.getText(), Toast.LENGTH_SHORT).show();
                 String item = parent.getItemAtPosition(position).toString();
                 date = item;
-                Toast.makeText(getApplicationContext(), autoCompleteDate.getText(), Toast.LENGTH_SHORT).show();
             }
         });
 
